@@ -58,5 +58,12 @@ Every input command has an output. The format is as given
 - <EMPLOYEENAME> is extracted from email ID: everything before the @ sign in the email 
 
 ### Sample Inputs: 
+Sample input commands to try: 
+- ADD-COURSE-OFFERING PYTHON JOHN 05062022 1 3
+- REGISTER WOO@GMAIL.COM OFFERING-PYTHON-JOHN
+- REGISTER ANDY@GMAIL.COM OFFERING-PYTHON-JOHN
+- REGISTER BOBY@GMAIL.COM OFFERING-PYTHON-JOHN
+- CANCEL REG-COURSE-BOBY-PYTHON
+- ALLOT OFFERING-PYTHON-JOHN
 <img width="613" alt="image" src="https://github.com/lo0oper/CourseManager/assets/110278052/51e135c6-d96b-4cf0-9b07-4a71b27afb86">
 
