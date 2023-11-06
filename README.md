@@ -3,6 +3,8 @@
 ### [Context](https://www.geektrust.com/challenge/course-scheduling?utm_campaign=atwc&utm_content=atwc&utm_medium=email&utm_source=product)
 The head of the Learning management system (LMS) has hired you as a consultant. The LMS team has the goal of upskilling the employees with the latest topics via courses. You need to help build a system to schedule and manage the courses. 
 
+
+### DEMO: [Loom](https://www.loom.com/share/156b7974317a4fa8b5b86efe55431721?sid=20f93450-1cd5-48b0-902c-6d4b82d0c9b2)
 ### Goal
 Your job is to build a simple command line application, which does the following:
 
