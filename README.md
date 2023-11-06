@@ -1,6 +1,6 @@
 ## COURSE MANAGER
 
-### Context
+### [Context](https://www.geektrust.com/challenge/course-scheduling?utm_campaign=atwc&utm_content=atwc&utm_medium=email&utm_source=product)
 The head of the Learning management system (LMS) has hired you as a consultant. The LMS team has the goal of upskilling the employees with the latest topics via courses. You need to help build a system to schedule and manage the courses. 
 
 ### Goal
@@ -57,3 +57,4 @@ Every input command has an output. The format is as given
 
 ### Sample Inputs: 
 <img width="613" alt="image" src="https://github.com/lo0oper/CourseManager/assets/110278052/51e135c6-d96b-4cf0-9b07-4a71b27afb86">
+
