@@ -2,5 +2,6 @@ package org.example.model;
 
 public enum RegistrationsStatus {
     ACCEPTED,
-    CONFIRMED
+    CONFIRMED,
+    COURSE_CANCELED
 }

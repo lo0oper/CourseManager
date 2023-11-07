@@ -67,10 +67,16 @@ public class CourseService {
     public void allotCourses(HashMap<String,Course> courseIdMap ,List<Registration> registrationsList, String courseId){
         Course course = courseIdMap.get(courseId);
         List<User> courseUsers = course.getCourseUsers();
+        RegistrationsStatus courseStatus ;
+        if(courseUsers.size()<course.getCourseMinRegistrations()){
+            courseStatus = RegistrationsStatus.COURSE_CANCELED;
+        }else{
+            courseStatus = RegistrationsStatus.CONFIRMED;
+        }
         for(Registration registration: registrationsList){
             //Updating registration status to confirm for users of this course
             if(registration.getCourse().getCourseTitle().equals(course.getCourseTitle())){
-                registration.setRegistrationsStatus(RegistrationsStatus.CONFIRMED);
+                registration.setRegistrationsStatus(courseStatus);
             }
         }
     }
