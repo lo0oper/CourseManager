@@ -13,4 +13,5 @@ public class Registration {
     private User user;
     private Course course;
     private RegistrationsStatus registrationsStatus;
+
 }

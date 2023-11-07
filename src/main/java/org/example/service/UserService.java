@@ -32,8 +32,6 @@ public class UserService {
         Course userCourse = courseIdMap.get(courseOfferingId);
         List<User> userWithCourse = userCourse.getCourseUsers();
 
-        //creating usersCourselist and adding current course to it
-        List<Course> userCourseList = new ArrayList<>();
 
         String registrationId = "REG-COURSE-"+ userName+"-" +userCourse.getCourseTitle();
 
@@ -42,7 +40,7 @@ public class UserService {
         if(userCourse.getCourseMaxRegistrations()==userWithCourse.size()){
             return "COURSE_FULL_ERROR";
         }else{
-            User newUser = new User(userId,userEmail,userName,userCourseList);
+            User newUser = new User(userId,userEmail,userName);
 
             //Registering user to registerList
             Registration registration = new Registration(registrationId,newUser,userCourse,ACCEPTED);

@@ -71,15 +71,7 @@ public class CourseService {
             //Updating registration status to confirm for users of this course
             if(registration.getCourse().getCourseTitle().equals(course.getCourseTitle())){
                 registration.setRegistrationsStatus(RegistrationsStatus.CONFIRMED);
-
             }
         }
-        return ;
-
-
     }
-
-
-
-
 }
