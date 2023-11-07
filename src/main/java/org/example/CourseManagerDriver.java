@@ -3,7 +3,6 @@ package org.example;
 import org.example.exceptions.InputDataException;
 import org.example.model.Course;
 import org.example.model.Registration;
-import org.example.model.RegistrationsStatus;
 import org.example.model.User;
 import org.example.service.CourseService;
 import org.example.service.RegistrationService;
@@ -12,7 +11,7 @@ import org.example.service.UtilityService;
 
 import java.util.*;
 
-public class Main {
+public class CourseManagerDriver {
     public static void main(String[] args) throws InputDataException {
         Scanner scanner = new Scanner(System.in);
 

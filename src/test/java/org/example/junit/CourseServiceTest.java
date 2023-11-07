@@ -5,6 +5,8 @@ import org.example.model.Registration;
 import org.example.model.RegistrationsStatus;
 import org.example.model.User;
 import org.example.service.CourseService;
+import org.example.service.RegistrationService;
+import org.example.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -88,16 +90,21 @@ public class CourseServiceTest {
     public void testAllotCourses() {
         // Create a course and add it to the list and map
         String inputData = "JAVA JAMES 15062022 1 2";
+        UserService ss ;
         List<Course> courseList = new ArrayList<>();
         HashMap<String,Course> courseIdMap = new HashMap<>();
         String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap);
 
-
         // Create a registration for the course
         Course course = courseIdMap.get(courseOfferingId);
 
+
         List<Registration> registrationsList = new ArrayList<>();
-        Registration registration = new Registration("1",new User("1","TEST@GMAIL.COM","TEST"), course, RegistrationsStatus.ACCEPTED);
+        List<User> userList = new ArrayList<>();
+        User user = new User("1","TEST@GMAIL.COM","TEST");
+        userList.add(user);
+        course.setCourseUsers(userList);
+        Registration registration = new Registration("1",user, course, RegistrationsStatus.ACCEPTED);
         registrationsList.add(registration);
 
 

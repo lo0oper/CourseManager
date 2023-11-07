@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @AllArgsConstructor
+
 public class Registration {
     private String registrationId;
     private User user;
