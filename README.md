@@ -1,7 +1,7 @@
 ## COURSE MANAGER
 
 ### [Context](https://www.geektrust.com/challenge/course-scheduling?utm_campaign=atwc&utm_content=atwc&utm_medium=email&utm_source=product)
-The head of the Learning management system (LMS) has hired you as a consultant. The LMS team has the goal of upskilling the employees with the latest topics via courses. You need to help build a system to schedule and manage the courses. 
+The head of the Learning management system (LMS) has hired you as a consultant. The LMS team has the goal of upskilling the employees with the latest topics via courses. You need to help build a system to schedule and manage the courses.
 
 
 ### DEMO: [Loom](https://www.loom.com/share/156b7974317a4fa8b5b86efe55431721?sid=20f93450-1cd5-48b0-902c-6d4b82d0c9b2)
@@ -22,14 +22,14 @@ This feature allots employees to course offering, before the course offering dat
 It should print a list of all the employees with their details along with their final course allotment status (Registration Number, Employee Name, Email, Course Offering ID, Course Name, Instructor, Date, Final Status). The list should be sorted based on the Registration number.
 If sufficient registrations are not received then the course offering itself gets cancelled.
 The employees who have registered will get confirmed unless the minimum number of registrations is not received.
-Even if the course offering gets canceled due to the minimum number of employees not registered, the list should be printed. 
+Even if the course offering gets canceled due to the minimum number of employees not registered, the list should be printed.
 
 
 ### Commands
 Every input command has an output. The format is as given
 <COMMAND> <parameter-1>...<parameter-n> :	<OUTPUT>
 
-#### Add course offering 
+#### Add course offering
 
 | COMMAND              | PARAMETERS                                                                   | OUTPUT                                                                                                            |
 |----------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +44,7 @@ Every input command has an output. The format is as given
 -  If number of employees has not exceeded the maximum number of employees allowed for the course offering, status will be ACCEPTED
 -  If number of employees has exceeded the maximum number of employees allowed for the course offering, status will be COURSE_FULL_ERROR
 -  If the minimum number of employees for the course offering is not reached before the course date, the status of the course offering would be COURSE_CANCELED
--  Course-registration-id will only be returned if the status is ACCEPTED 
+-  Course-registration-id will only be returned if the status is ACCEPTED
 - **The output should be sorted by course-registration-id in ascending order**
 
 ### Assumptions
@@ -57,13 +57,33 @@ Every input command has an output. The format is as given
 - Registration ID generated is a combination of REG-COURSE-<EMPLOYEENAME>-<COURSENAME>
 - <EMPLOYEENAME> is extracted from email ID: everything before the @ sign in the email 
 
-### Sample Inputs: 
-Sample input commands to try: 
+### Sample Inputs:
+Sample input commands to try:
 - ADD-COURSE-OFFERING PYTHON JOHN 05062022 1 3
 - REGISTER WOO@GMAIL.COM OFFERING-PYTHON-JOHN
 - REGISTER ANDY@GMAIL.COM OFFERING-PYTHON-JOHN
 - REGISTER BOBY@GMAIL.COM OFFERING-PYTHON-JOHN
 - CANCEL REG-COURSE-BOBY-PYTHON
 - ALLOT OFFERING-PYTHON-JOHN
-<img width="613" alt="image" src="https://github.com/lo0oper/CourseManager/assets/110278052/51e135c6-d96b-4cf0-9b07-4a71b27afb86">
+  <img width="613" alt="image" src="https://github.com/lo0oper/CourseManager/assets/110278052/51e135c6-d96b-4cf0-9b07-4a71b27afb86">
+
+
+
+# How to run the code
+
+Run these commands
+* `mvn clean install -DskipTests assembly:single -q` - This will create a jar file `geektrust.jar` in the `target` folder.
+* `java -jar target/geektrust.jar sample_input/input1.txt` - This will execute the jar file passing in the sample input file as the command line argument
+
+
+# Running input files can be done, input files are present in sample_input folder
+
+Please fill `input1.txt` and `input2.txt` with the input commands and use those files in `run.bat` or `run.sh`. Replace `java -jar target/geektrust.jar sample_input/input1.txt` with `java -jar target/geektrust.jar sample_input/input2.txt` to run the test case from the second file.
+
+# How to execute the unit tests
+
+`mvn clean test` will execute the unit test cases.
+
+# Help
+To learn more about question go  [here](https://help.geektrust.com)
 
