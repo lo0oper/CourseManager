@@ -1,4 +1,4 @@
-package org.example.junit;
+package org.example;
 
 import org.example.model.Course;
 import org.example.model.Registration;

@@ -1,8 +1,6 @@
 package org.example.service;
 
-import org.example.model.Course;
 import org.example.model.Registration;
-import org.example.model.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class UtilityService implements Comparator<Registration> {
     @Override

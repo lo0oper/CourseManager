@@ -1,11 +1,10 @@
-package org.example.junit;
+package org.example;
 
+import org.example.model.RegistrationsStatus;
 import org.example.model.Course;
 import org.example.model.Registration;
-import org.example.model.RegistrationsStatus;
 import org.example.model.User;
 import org.example.service.CourseService;
-import org.example.service.RegistrationService;
 import org.example.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +12,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.*;
 

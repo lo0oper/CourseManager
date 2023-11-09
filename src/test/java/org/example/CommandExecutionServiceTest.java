@@ -1,4 +1,4 @@
-package org.example.junit;
+package org.example;
 
 import org.example.service.CommandExecutionService;
 import org.junit.Before;

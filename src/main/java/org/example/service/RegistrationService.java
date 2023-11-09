@@ -1,8 +1,8 @@
 package org.example.service;
 
+import org.example.model.RegistrationsStatus;
 import org.example.model.Course;
 import org.example.model.Registration;
-import org.example.model.RegistrationsStatus;
 import org.example.model.User;
 
 import java.util.List;

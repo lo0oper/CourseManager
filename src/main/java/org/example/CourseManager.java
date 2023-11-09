@@ -2,14 +2,9 @@
 package org.example;
 
 import org.example.exceptions.InputDataException;
-import org.example.model.Course;
-import org.example.model.Registration;
-import org.example.model.User;
-import org.example.service.*;
+import org.example.service.CommandExecutionService;
+import org.example.service.UtilityService;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 
 

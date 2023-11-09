@@ -1,10 +1,10 @@
-package org.example.junit;
+package org.example;
 
 import org.example.model.Course;
 import org.example.model.Registration;
 import org.example.model.RegistrationsStatus;
-import org.example.model.User;
 import org.example.service.UtilityService;
+import org.example.model.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class UtilityServiceTest {
         userList.add(user);
         Course course = new Course("CourseTitle", "Instructor", "Date", "CourseOfferingId", "Offering1", 5,1,userList);
 
-        Registration registration1 = new Registration("REG-TEST1-CourseTitle",new User("1","TEST1@GMAIL.COM","TEST2"),course,RegistrationsStatus.ACCEPTED);
+        Registration registration1 = new Registration("REG-TEST1-CourseTitle",new User("1","TEST1@GMAIL.COM","TEST2"),course, RegistrationsStatus.ACCEPTED);
         Registration registration2 = new Registration("REG-TEST2-CourseTitle",new User("2","TEST2@GMAIL.COM","TEST2"),course,RegistrationsStatus.ACCEPTED);
         Registration registration3 = new Registration("REG-TEST3-CourseTitle",new User("3","TEST3@GMAIL.COM","TEST2"),course,RegistrationsStatus.ACCEPTED);
 

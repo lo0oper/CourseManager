@@ -1,26 +1,16 @@
 package org.example.service;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import org.example.model.RegistrationsStatus;
 import org.example.model.Course;
 import org.example.model.Registration;
 import org.example.model.User;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.example.model.RegistrationsStatus.ACCEPTED;
 
-@AllArgsConstructor
-@Getter
-@Setter
 public class UserService {
-
-    //REGISTER	 <email-id> <course-offering-id>
-
 
     public String registerUser(String InputData, List<User> userList, HashMap<String,Course>courseIdMap, List<Registration> registrationsList){
         String[] inputDataParts = InputData.split(" ");
@@ -43,7 +33,7 @@ public class UserService {
             User newUser = new User(userId,userEmail,userName);
 
             //Registering user to registerList
-            Registration registration = new Registration(registrationId,newUser,userCourse,ACCEPTED);
+            Registration registration = new Registration(registrationId,newUser,userCourse, RegistrationsStatus.ACCEPTED);
             registrationsList.add(registration);
 
             //adding newUser to courseUsers list
