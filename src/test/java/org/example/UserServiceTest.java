@@ -4,14 +4,14 @@ import org.example.model.Registration;
 import org.example.service.UserService;
 import org.example.model.Course;
 import org.example.model.User;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
 
 public class UserServiceTest {
     private UserService userService;
@@ -19,7 +19,7 @@ public class UserServiceTest {
     private HashMap<String, Course> courseIdMap;
     private List<Registration> registrationsList;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         userService = new UserService();
         userList = new ArrayList<>();

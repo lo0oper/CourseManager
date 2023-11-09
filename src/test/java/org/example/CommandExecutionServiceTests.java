@@ -1,15 +1,17 @@
 package org.example;
 
 import org.example.service.CommandExecutionService;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
 
-public class CommandExecutionServiceTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CommandExecutionServiceTests {
     private CommandExecutionService commandExecutionService;
 
-    @Before
+
+    @BeforeEach
     public void setUp() {
         commandExecutionService = new CommandExecutionService();
     }
@@ -63,7 +65,8 @@ public class CommandExecutionServiceTest {
     public void testScheduleCourseCancelRejected() {
         String command = "ADD-COURSE-OFFERING";
         String inputData = "JAVA JAMES 15062022 1 2";
-        String result = commandExecutionService.scheduleCourse(command, inputData);
+        String result;
+        result = commandExecutionService.scheduleCourse(command, inputData);
         command = "REGISTER";
         inputData = "ANDY@GMAIL.COM OFFERING-JAVA-JAMES";
         result = commandExecutionService.scheduleCourse(command, inputData);

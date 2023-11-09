@@ -5,13 +5,17 @@ import org.example.model.Registration;
 import org.example.model.RegistrationsStatus;
 import org.example.service.UtilityService;
 import org.example.model.User;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+
 
 public class UtilityServiceTest {
     @Test

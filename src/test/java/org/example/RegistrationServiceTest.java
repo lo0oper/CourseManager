@@ -6,14 +6,16 @@ import org.example.model.RegistrationsStatus;
 import org.example.model.User;
 import org.example.service.CourseService;
 import org.example.service.RegistrationService;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.*;
+
 
 public class RegistrationServiceTest {
     private RegistrationService registrationService;
@@ -23,7 +25,7 @@ public class RegistrationServiceTest {
 
     private List<User> userList;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         registrationService = new RegistrationService();
         registrationsList = new ArrayList<>();

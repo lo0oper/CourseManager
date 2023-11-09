@@ -6,21 +6,24 @@ import org.example.model.Registration;
 import org.example.model.User;
 import org.example.service.CourseService;
 import org.example.service.UserService;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static org.junit.Assert.*;
+
 
 public class CourseServiceTest {
     private CourseService courseService;
     private List<Course> courseList;
     private HashMap<String, Course> courseIdMap;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         courseService = new CourseService();
         courseList = new ArrayList<>();
@@ -34,8 +37,8 @@ public class CourseServiceTest {
 
         // Check that the course was created and added to the list and map
         assertNotNull(courseOfferingId);
-        assertTrue(courseList.size() == 1);
-        assertTrue(courseIdMap.size() == 1);
+        assertEquals(1, courseList.size());
+        assertEquals(1, courseIdMap.size());
 
         // Check that the course exists in the map
         Course createdCourse = courseIdMap.get(courseOfferingId);
