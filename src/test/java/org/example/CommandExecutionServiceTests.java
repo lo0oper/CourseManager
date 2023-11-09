@@ -101,4 +101,9 @@ public class CommandExecutionServiceTests {
         assertEquals("REG-COURSE-ANDY-JAVA CANCEL_ACCEPTED", result);
     }
 
+    @Test
+    public void testIncorrectInputData(){
+        String result = commandExecutionService.scheduleCourse("TEST_COMMAND","TEST_INPUT");
+        assertEquals("INPUT_DATA_ERROR",result);
+    }
 }
