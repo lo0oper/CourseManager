@@ -3,10 +3,12 @@ package org.example;
 import org.example.model.Course;
 import org.example.model.Registration;
 import org.example.model.RegistrationsStatus;
+import org.example.service.CommandExecutionService;
 import org.example.service.UtilityService;
 import org.example.model.User;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,9 +20,15 @@ import java.util.List;
 
 
 public class UtilityServiceTest {
+    private UtilityService utilityService;
+    @BeforeEach
+    public void setUp() {
+        utilityService = new UtilityService();
+    }
+
     @Test
     public void testCompareRegistrationIds() {
-        UtilityService utilityService = new UtilityService();
+
         List<User> userList = new ArrayList<>();
 
         // Create a list of Registration objects with existing registration IDs
@@ -47,5 +55,23 @@ public class UtilityServiceTest {
         assertEquals(0, registrationList.indexOf(registration1));
         assertEquals(1, registrationList.indexOf(registration2));
         assertEquals(2, registrationList.indexOf(registration3));
+    }
+
+
+    @Test
+    public void testGetCommandAndArgsForCancelRegistration(){
+        String commandLine = "CANCEL REG-COURSE-ANDY-JAVA";
+        String[] data = utilityService.getCommandAndArgs(commandLine);
+        assertEquals("CANCEL",data[0]);
+        assertEquals("REG-COURSE-ANDY-JAVA",data[1]);
+
+    }
+
+
+    @Test
+    public  void testReadFileSuccessFully(){
+        String inputTestFilePath = "./sample_input/testinput.txt";
+        List<String > lineData = utilityService.readFileData(inputTestFilePath);
+        assertEquals(1,lineData.size());
     }
 }
