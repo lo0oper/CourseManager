@@ -88,7 +88,8 @@ public class CommandExecutionServiceTests {
     public void testScheduleCourseCancelAccepted() {
         String command = "ADD-COURSE-OFFERING";
         String inputData = "JAVA JAMES 15062022 1 2";
-        String result = commandExecutionService.scheduleCourse(command, inputData);
+        commandExecutionService.scheduleCourse(command, inputData);
+        String result;
         command = "REGISTER";
         inputData = "ANDY@GMAIL.COM OFFERING-JAVA-JAMES";
         result = commandExecutionService.scheduleCourse(command, inputData);

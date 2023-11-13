@@ -3,7 +3,6 @@ package org.example;
 import org.example.model.Course;
 import org.example.model.Registration;
 import org.example.model.RegistrationsStatus;
-import org.example.service.CommandExecutionService;
 import org.example.service.UtilityService;
 import org.example.model.User;
 
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -88,5 +86,20 @@ public class UtilityServiceTest {
     public void testGetUserNameFromEmail(){
         String email ="RAM@GMAIL.COM";
         assertEquals("RAM",utilityService.getUsernameFromEmail(email));
+    }
+
+    @Test
+    public void testRegistrationServiceCancellation(){
+        User user = new User("1","TEST@GMAIL.COM","TEST");
+        List<User> userList = new ArrayList<>();
+        List<Registration> registrationsList = new ArrayList<>();
+        userList.add(user);
+        Course course = new Course("1","CourseTitle", "Instructor", "Date", "CourseOfferingId", -1, 0, userList);
+        Registration registration = new Registration("REG-COURSE-TEST-CourseTitle",user, course, RegistrationsStatus.CONFIRMED);
+        registrationsList.add(registration);
+
+        String registrationId = "REG-COURSE-TEST-CourseTitle";
+        utilityService.removeCancelledRegistrationsFromCourse(userList,"REG-COURSE-TEST-CourseTitl");
+        assertEquals(registrationsList.size(),1);
     }
 }

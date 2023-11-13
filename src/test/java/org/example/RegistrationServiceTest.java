@@ -68,18 +68,18 @@ public class RegistrationServiceTest {
         User user = new User("1","TEST@GMAIL.COM","TEST");
         userList.add(user);
         Course course = new Course("CourseTitle", "Instructor", "Date", "CourseOfferingId", "Offering1", 5,1,userList);
-        Registration registration = new Registration("REG-TEST-CourseTitle",user, course, RegistrationsStatus.ACCEPTED);
+        Registration registration = new Registration("REG-COURSE-TEST-CourseTitle",user, course, RegistrationsStatus.ACCEPTED);
         registrationsList.add(registration);
 
-        String registrationId = "REG-TEST-CourseTitle";
+        String registrationId = "REG-COURSE-TEST-CourseTitle";
 
         // Attempt to cancel the registration
-        String result = registrationService.cancelCourseRegistration(registrationId, registrationsList);
+        String result = registrationService.cancelCourseRegistration(registrationId, registrationsList,utilityService);
 
         // Check that the registration is successfully canceled
         assertEquals("CANCEL_ACCEPTED", result);
         assertTrue(registrationsList.isEmpty()); // The registration should be removed
-        assertFalse(course.getCourseUsers().isEmpty()); // The user should be removed from the course
+        assertTrue(course.getCourseUsers().isEmpty()); // The user should be removed from the course
     }
 
     @Test
@@ -94,7 +94,7 @@ public class RegistrationServiceTest {
         String registrationId = "REG-COURSE-TEST-CourseTitle";
 
         // Attempt to cancel the registration
-        String result = registrationService.cancelCourseRegistration(registrationId, registrationsList);
+        String result = registrationService.cancelCourseRegistration(registrationId, registrationsList,utilityService);
 
         // Check that the cancellation is rejected
         assertEquals("CANCEL_REJECTED", result);
@@ -108,7 +108,7 @@ public class RegistrationServiceTest {
         String registrationId = "REGISTRATION-NonExistentUser-NonExistentCourse";
 
         // Attempt to cancel the registration
-        String result = registrationService.cancelCourseRegistration(registrationId, registrationsList);
+        String result = registrationService.cancelCourseRegistration(registrationId, registrationsList,utilityService);
 
         // Check that the registration was not found and the result is "REGISTRATION_NOT_DONE"
         assertEquals("REGISTRATION_NOT_DONE", result);

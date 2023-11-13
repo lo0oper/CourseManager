@@ -71,7 +71,9 @@ public class CommandExecutionService {
                     break;
                 case "CANCEL":
                     if(registrationService.validateRegistrationCancelInput(inputData)){
-                        result = inputData + " " + registrationService.cancelCourseRegistration(inputData,registrationsList);
+                        result = inputData + " " + registrationService.cancelCourseRegistration(inputData,registrationsList,utilityService);
+
+
                     }else{
                         result = "INPUT_DATA_ERROR";
                     }

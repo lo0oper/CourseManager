@@ -1,14 +1,12 @@
 package org.example.service;
 
 import org.example.model.Registration;
+import org.example.model.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class UtilityService implements Comparator<Registration> {
     @Override
@@ -47,5 +45,29 @@ public class UtilityService implements Comparator<Registration> {
 
     public String getCourseOfferingId(String courseTitle, String courseInstructor){
         return "OFFERING-"+courseTitle+"-"+courseInstructor;
+    }
+
+
+    public boolean removeCancelledRegistrationsFromCourse(List<User> registeredUserListForCourse, String registrationId){
+        for(User user:registeredUserListForCourse){
+            if(user.getName().equals(registrationId.split("-")[2])){
+                //removing user from course's userlist
+                registeredUserListForCourse.remove(user);
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public boolean removeRegistrationFromRegistrationList(List<Registration> registrationList, String registrationId){
+        for(Registration registration: registrationList){
+            if(registration.getRegistrationId().equals(registrationId)){
+                registrationList.remove(registration);
+                return true;
+            }
+        }
+        return false;
+
     }
 }
