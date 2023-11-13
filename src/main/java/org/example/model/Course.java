@@ -27,61 +27,43 @@ public class Course {
         this.courseUsers = courseUsers;
     }
 
-    public String getCourseId() {
-        return courseId;
-    }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
+
+
 
     public String getCourseTitle() {
         return courseTitle;
     }
 
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle;
-    }
+
 
     public String getCourseInstructor() {
         return courseInstructor;
     }
 
-    public void setCourseInstructor(String courseInstructor) {
-        this.courseInstructor = courseInstructor;
-    }
+
 
     public String getCourseStartDate() {
         return courseStartDate;
     }
 
-    public void setCourseStartDate(String courseStartDate) {
-        this.courseStartDate = courseStartDate;
-    }
+
 
     public String getCourseOfferingId() {
         return courseOfferingId;
     }
 
-    public void setCourseOfferingId(String courseOfferingId) {
-        this.courseOfferingId = courseOfferingId;
-    }
+
 
     public int getCourseMaxRegistrations() {
         return courseMaxRegistrations;
     }
 
-    public void setCourseMaxRegistrations(int courseMaxRegistrations) {
-        this.courseMaxRegistrations = courseMaxRegistrations;
-    }
 
     public int getCourseMinRegistrations() {
         return courseMinRegistrations;
     }
 
-    public void setCourseMinRegistrations(int courseMinRegistrations) {
-        this.courseMinRegistrations = courseMinRegistrations;
-    }
 
     public List<User> getCourseUsers() {
         return courseUsers;

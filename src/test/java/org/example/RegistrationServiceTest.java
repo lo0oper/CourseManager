@@ -8,6 +8,8 @@ import org.example.service.CourseService;
 import org.example.service.RegistrationService;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.example.service.UtilityService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,12 +27,15 @@ public class RegistrationServiceTest {
 
     private List<User> userList;
 
+    private UtilityService utilityService;
+
     @BeforeEach
     public void setUp() {
         registrationService = new RegistrationService();
         registrationsList = new ArrayList<>();
         courseService = new CourseService();
         userList = new ArrayList<>();
+        utilityService = new UtilityService();
     }
 
     @Test
@@ -39,7 +44,7 @@ public class RegistrationServiceTest {
         String inputData = "JAVA JAMES 15062022 1 2";
         List<Course> courseList = new ArrayList<>();
         HashMap<String,Course> courseIdMap = new HashMap<>();
-        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap);
+        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap,utilityService);
 
         Registration registration1 = new Registration("TESTID1",new User("1","TEST@GMAIL.COM","TEST"),courseIdMap.get(courseOfferingId), RegistrationsStatus.ACCEPTED);
         Registration registration2 = new Registration("TESTID2",new User("1","TEST@GMAIL.COM","TEST2"), courseIdMap.get(courseOfferingId), RegistrationsStatus.ACCEPTED);

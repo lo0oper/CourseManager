@@ -21,19 +21,22 @@ public class CommandExecutionService {
     UserService userService = new UserService();
     RegistrationService registrationService = new RegistrationService();
 
+    UtilityService utilityService = new UtilityService();
+
     public String scheduleCourse(String command, String inputData){
         String result;
         try{
             switch (command) {
                 case "ADD-COURSE-OFFERING":
                     if(courseService.validateAddCourseInput(inputData)){
-                        result = courseService.createCourse(inputData,courseList,courseIdMap);
+                        result = courseService.createCourse(inputData,courseList,courseIdMap,utilityService);
                     }else{
                         result = "INPUT_DATA_ERROR";
                     }
                     break;
                 case "REGISTER":
                     if(userService.validateRegisterUserInput(inputData)){
+
                         result = userService.registerUser(inputData,userList,courseIdMap,registrationsList);
 
                     }else{
@@ -43,7 +46,6 @@ public class CommandExecutionService {
                 case "ALLOT":
                     if(courseService.validateAllotCoursesInput(inputData)){
                         courseService.allotCourses(courseIdMap,registrationsList,inputData);
-                        List<String> output = new ArrayList<String>();
                         String tempAns ="";
                         // Sort the list based on registrationId
                         Collections.sort(registrationsList, new UtilityService());

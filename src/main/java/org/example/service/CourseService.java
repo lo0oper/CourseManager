@@ -13,21 +13,14 @@ import java.util.List;
 public class CourseService {
     //<course-name> <instructor> <date-in-ddmmyyyy> <minEmployees> <maxEmployees>
 
-    public String createCourse(String inputData, List<Course> courseList, HashMap<String,Course> courseIdMap) {
+    public String createCourse(String inputData, List<Course> courseList, HashMap<String,Course> courseIdMap, UtilityService utilityService) {
         String[] inputDataParts = inputData.split(" ");
-        String courseTitle = inputDataParts[0];
-        String courseInstructor = inputDataParts[1];
-        String courseDate = inputDataParts[2];
-        int minEmployees = Integer.parseInt(inputDataParts[3]);
-        int maxEmployees = Integer.parseInt(inputDataParts[4]);
-        String newCourseId = String.valueOf((courseList.size() + 1));
-        List<User> courseUsers = new ArrayList<>();
-        String courseOfferingId = "OFFERING-"+courseTitle+"-"+courseInstructor;
+        String courseOfferingId = utilityService.getCourseOfferingId( inputDataParts[0],inputDataParts[1]);
         // Check for registering already registered course. Since this case is not mentioned in problem statement ignoring this
         if(courseIdMap.containsKey(courseOfferingId)){
             return courseOfferingId;
         }else{
-            Course newCourse = new Course(newCourseId, courseTitle, courseInstructor, courseDate,courseOfferingId, maxEmployees, minEmployees, courseUsers);
+            Course newCourse = new Course(String.valueOf((courseList.size() + 1)), inputDataParts[0], inputDataParts[1], inputDataParts[2],courseOfferingId, Integer.parseInt(inputDataParts[4]), Integer.parseInt(inputDataParts[3]), new ArrayList<>());
             courseList.add(newCourse);
 
             // Adding course to hashmap

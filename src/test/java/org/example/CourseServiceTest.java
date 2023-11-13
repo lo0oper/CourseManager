@@ -6,6 +6,7 @@ import org.example.model.Registration;
 import org.example.model.User;
 import org.example.service.CourseService;
 import org.example.service.UserService;
+import org.example.service.UtilityService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,18 +23,20 @@ public class CourseServiceTest {
     private CourseService courseService;
     private List<Course> courseList;
     private HashMap<String, Course> courseIdMap;
+    private UtilityService utilityService;
 
     @BeforeEach
     public void setUp() {
         courseService = new CourseService();
         courseList = new ArrayList<>();
         courseIdMap = new HashMap<>();
+        utilityService = new UtilityService();
     }
 
     @Test
     public void testCreateCourse() {
         String inputData = "TestCourse TestInstructor 01012023 5 10";
-        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap);
+        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap,utilityService);
 
         // Check that the course was created and added to the list and map
         assertNotNull(courseOfferingId);
@@ -58,7 +61,7 @@ public class CourseServiceTest {
         courseIdMap.put("OFFERING-TestCourse-TestInstructor", existingCourse);
 
         String inputData = "TestCourse TestInstructor 01012023 5 10";
-        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap);
+        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap,utilityService);
 
         // The existing course should be returned, and nothing should be added
         assertEquals("OFFERING-TestCourse-TestInstructor", courseOfferingId);
@@ -94,7 +97,7 @@ public class CourseServiceTest {
         UserService ss ;
         List<Course> courseList = new ArrayList<>();
         HashMap<String,Course> courseIdMap = new HashMap<>();
-        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap);
+        String courseOfferingId = courseService.createCourse(inputData, courseList, courseIdMap,utilityService);
 
         // Create a registration for the course
         Course course = courseIdMap.get(courseOfferingId);

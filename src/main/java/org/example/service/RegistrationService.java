@@ -5,6 +5,7 @@ import org.example.model.Course;
 import org.example.model.Registration;
 import org.example.model.User;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class RegistrationService {
@@ -22,13 +23,12 @@ public class RegistrationService {
                 if(registration.getRegistrationsStatus()== RegistrationsStatus.ACCEPTED){
 
                     //removing user from course
-                    String userName = registrationId.split("-")[2];
-                    Course registeredCourse = registration.getCourse();
-                    List<User> registeredUserList = registeredCourse.getCourseUsers();
-                    for(User user:registeredUserList){
-                        if(user.getName().equals(userName)){
-                            //removing user from course's userlist
-                            registeredUserList.remove(user);
+                    List<User> registeredUserList = registration.getCourse().getCourseUsers();
+                    Iterator<User> iterator = registeredUserList.iterator();
+                    while (iterator.hasNext()) {
+                        User user = iterator.next();
+                        if (user.getName().equals(registrationId.split("-")[2])) {
+                            iterator.remove(); // remove the user using the iterator
                             break;
                         }
                     }

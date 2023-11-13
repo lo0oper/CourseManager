@@ -34,13 +34,18 @@ public class UtilityService implements Comparator<Registration> {
 
     public String[] getCommandAndArgs(String str){
         try{
-            String[] inputStringParts = str.split(" ",2);
-            String command = inputStringParts[0];
-            String inputData = inputStringParts[1];
-            return new String[]{command, inputData};
+            return new String[]{str.split(" ",2)[0], str.split(" ",2)[1]};
         }catch (Exception e){
             return new String[]{"INPUT_DATA_ERROR"};
         }
 
+    }
+
+    public String getUsernameFromEmail(String email){
+        return email.split("@")[0];
+    }
+
+    public String getCourseOfferingId(String courseTitle, String courseInstructor){
+        return "OFFERING-"+courseTitle+"-"+courseInstructor;
     }
 }

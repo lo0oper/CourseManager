@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -73,5 +74,19 @@ public class UtilityServiceTest {
         String inputTestFilePath = "./sample_input/testinput.txt";
         List<String > lineData = utilityService.readFileData(inputTestFilePath);
         assertEquals(1,lineData.size());
+    }
+
+    @Test
+    public void testGetCourseOfferingId(){
+        String courseTitle = "JAVA";
+        String courseInstructor = "ANKUSH";
+        String courseID = utilityService.getCourseOfferingId(courseTitle,courseInstructor);
+        assertEquals("OFFERING-JAVA-ANKUSH",courseID);
+    }
+
+    @Test
+    public void testGetUserNameFromEmail(){
+        String email ="RAM@GMAIL.COM";
+        assertEquals("RAM",utilityService.getUsernameFromEmail(email));
     }
 }
